@@ -2,7 +2,7 @@
 
 require("../polyfill");
 
-import { useState, useEffect, StyleHTMLAttributes } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./home.module.scss";
 
@@ -18,8 +18,8 @@ import { ErrorBoundary } from "./error";
 
 import {
   HashRouter as Router,
-  Routes,
   Route,
+  Routes,
   useLocation,
 } from "react-router-dom";
 import { SideBar } from "./sidebar";
@@ -111,7 +111,7 @@ function MobileScreen() {
 
       <div className={styles["window-content"]}>
         <Routes>
-          <Route path={Path.Home} element={null} />
+          <Route path={Path.Home} element={<Chat />} />
           <Route path={Path.Chat} element={<Chat />} />
           <Route path={Path.Settings} element={<Settings />} />
         </Routes>

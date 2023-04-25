@@ -5,7 +5,7 @@ import RemarkBreaks from "remark-breaks";
 import RehypeKatex from "rehype-katex";
 import RemarkGfm from "remark-gfm";
 import RehypeHighlight from "rehype-highlight";
-import { useRef, useState, RefObject, useEffect } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import { copyToClipboard } from "../utils";
 
 import LoadingIcon from "../icons/three-dots.svg";

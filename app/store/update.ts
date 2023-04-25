@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { FETCH_COMMIT_URL, FETCH_TAG_URL } from "../constant";
+import { FETCH_COMMIT_URL } from "../constant";
 import { requestUsage } from "../requests";
 
 export interface UpdateStore {

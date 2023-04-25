@@ -33,6 +33,26 @@
   }
 }
 
+.username-input-container {
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-end;
+
+  .username-input {
+    min-width: 100%;
+  }
+}
+
+.login-button-container {
+  max-width: 20%;
+  display: flex;
+  justify-content: flex-end;
+
+  .username-input {
+    min-width: 100%;
+  }
+}
+
 .user-prompt-modal {
   min-height: 40vh;
 

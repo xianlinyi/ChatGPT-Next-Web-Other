@@ -5,7 +5,6 @@ import {
   ModelType,
   useAccessStore,
   useAppConfig,
-  useChatStore,
 } from "./store";
 import { showToast } from "./components/ui-lib";
 
@@ -180,6 +179,7 @@ export async function requestChatStream(
     });
     clearTimeout(reqTimeoutId);
 
+    console.log("[Response] ", res);
     let responseText = "";
 
     const finish = () => {

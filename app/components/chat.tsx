@@ -1,5 +1,6 @@
-import { useDebounce, useDebouncedCallback } from "use-debounce";
-import { memo, useState, useRef, useEffect, useLayoutEffect } from "react";
+import { useDebouncedCallback } from "use-debounce";
+import { memo, useEffect, useLayoutEffect, useRef, useState } from "react";
+import Avatar from "react-avatar";
 
 import SendWhiteIcon from "../icons/send-white.svg";
 import BrainIcon from "../icons/brain.svg";
@@ -23,24 +24,24 @@ import BottomIcon from "../icons/bottom.svg";
 import StopIcon from "../icons/pause.svg";
 
 import {
-  Message,
-  SubmitKey,
-  useChatStore,
   BOT_HELLO,
-  ROLES,
   createMessage,
-  useAccessStore,
-  Theme,
+  Message,
   ModelType,
+  ROLES,
+  SubmitKey,
+  Theme,
+  useAccessStore,
   useAppConfig,
+  useChatStore,
 } from "../store";
 
 import {
+  autoGrowTextArea,
   copyToClipboard,
   downloadAs,
   getEmojiUrl,
   selectOrCopy,
-  autoGrowTextArea,
   useMobileScreen,
 } from "../utils";
 
@@ -69,12 +70,16 @@ const Emoji = dynamic(async () => (await import("emoji-picker-react")).Emoji, {
   loading: () => <LoadingIcon />,
 });
 
-export function Avatar(props: { role: Message["role"]; model?: ModelType }) {
+export function ChatAvatar(props: {
+  role: Message["role"];
+  model?: ModelType;
+}) {
   const config = useAppConfig();
 
   if (props.role !== "user") {
     return (
       <div className="no-dark">
+        <Avatar size="33" round={true} src="../icons/bot.svg" />
         {props.model?.startsWith("gpt-4") ? (
           <BlackBotIcon className={styles["user-avtar"]} />
         ) : (
@@ -366,6 +371,7 @@ export function ChatActions(props: {
 
   // switch themes
   const theme = config.theme;
+
   function nextTheme() {
     const themes = [Theme.Auto, Theme.Light, Theme.Dark];
     const themeIndex = themes.indexOf(theme);
@@ -739,7 +745,7 @@ export function Chat() {
             >
               <div className={styles["chat-message-container"]}>
                 <div className={styles["chat-message-avatar"]}>
-                  <Avatar role={message.role} model={message.model} />
+                  <ChatAvatar role={message.role} model={message.model} />
                 </div>
                 {showTyping && (
                   <div className={styles["chat-message-status"]}>

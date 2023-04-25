@@ -9,7 +9,7 @@ import ChatGptIcon from "../icons/chatgpt.svg";
 import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
 import Locale from "../locales";
-
+import Avatar from "react-avatar";
 import { useAppConfig, useChatStore } from "../store";
 
 import {
@@ -94,8 +94,12 @@ export function SideBar(props: { className?: string }) {
         <div className={styles["sidebar-sub-title"]}>
           Build your own AI assistant.
         </div>
-        <div className={styles["sidebar-logo"]}>
-          <ChatGptIcon />
+        <div className={styles["sidebar-user-avatar"]}>
+          <Avatar
+            size="45"
+            round={true}
+            src={"https://avatars.githubusercontent.com/u/1024025?v=4"}
+          />
         </div>
       </div>
 

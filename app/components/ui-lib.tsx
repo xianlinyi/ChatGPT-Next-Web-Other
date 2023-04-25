@@ -63,6 +63,7 @@ interface ModalProps {
   actions?: JSX.Element[];
   onClose?: () => void;
 }
+
 export function Modal(props: ModalProps) {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {

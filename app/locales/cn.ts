@@ -79,6 +79,15 @@ const cn = {
       },
     },
     Avatar: "头像",
+
+    User: {
+      Username: "用户名",
+      UsernamePlaceholder: "请输入用户名",
+      Password: "密码",
+      PasswordPlaceholder: "请输入密码",
+      Login: "登录",
+    },
+
     FontSize: {
       Title: "字体大小",
       SubTitle: "聊天内容的字体大小",

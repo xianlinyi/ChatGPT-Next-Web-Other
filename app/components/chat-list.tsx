@@ -2,18 +2,20 @@ import DeleteIcon from "../icons/delete.svg";
 import styles from "./home.module.scss";
 import {
   DragDropContext,
-  Droppable,
   Draggable,
+  Droppable,
   OnDragEndResponder,
 } from "@hello-pangea/dnd";
 
 import { useChatStore } from "../store";
+import ChatGptIcon from "../icons/chatgpt.svg";
 
 import Locale from "../locales";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Path } from "../constant";
 
 export function ChatItem(props: {
+  logo: string;
   onClick?: () => void;
   onDelete?: () => void;
   title: string;
@@ -40,7 +42,12 @@ export function ChatItem(props: {
             <div className={styles["chat-item-narrow"]}>{props.count}</div>
           ) : (
             <>
-              <div className={styles["chat-item-title"]}>{props.title}</div>
+              <div className={styles["chat-item-title"]}>
+                <div className={styles["chat-logo"]}>
+                  <ChatGptIcon />
+                </div>
+                <div>{props.title}</div>
+              </div>
               <div className={styles["chat-item-info"]}>
                 <div className={styles["chat-item-count"]}>
                   {Locale.ChatItem.ChatItemCount(props.count)}

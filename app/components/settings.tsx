@@ -1,4 +1,5 @@
-import { useState, useEffect, useMemo, HTMLProps, useRef } from "react";
+import * as React from "react";
+import { HTMLProps, useEffect, useMemo, useState } from "react";
 
 import EmojiPicker, { Theme as EmojiTheme } from "emoji-picker-react";
 
@@ -16,16 +17,16 @@ import { Input, List, ListItem, Modal, Popover } from "./ui-lib";
 
 import { IconButton } from "./button";
 import {
-  SubmitKey,
-  useChatStore,
-  Theme,
   ALL_MODELS,
-  useUpdateStore,
-  useAccessStore,
   ModalConfigValidator,
+  SubmitKey,
+  Theme,
+  useAccessStore,
   useAppConfig,
+  useChatStore,
+  useUpdateStore,
 } from "../store";
-import { Avatar } from "./chat";
+import { ChatAvatar } from "./chat";
 
 import Locale, { AllLangs, changeLang, getLang } from "../locales";
 import { copyToClipboard, getEmojiUrl } from "../utils";
@@ -155,6 +156,18 @@ function SettingItem(props: {
   );
 }
 
+function ButtonGroupItem(props: HTMLProps<HTMLInputElement>) {
+  return <div></div>;
+}
+
+function UsernameInput(props: HTMLProps<HTMLInputElement>) {
+  return (
+    <div className={styles["username-input-container"]}>
+      <input {...props} type={"text"} className={styles["username-input"]} />
+    </div>
+  );
+}
+
 function PasswordInput(props: HTMLProps<HTMLInputElement>) {
   const [visible, setVisible] = useState(false);
 
@@ -207,6 +220,7 @@ export function Settings() {
     subscription: updateStore.subscription,
   };
   const [loadingUsage, setLoadingUsage] = useState(false);
+
   function checkUsage() {
     setLoadingUsage(true);
     updateStore.updateUsage().finally(() => {
@@ -301,6 +315,22 @@ export function Settings() {
       </div>
       <div className={styles["settings"]}>
         <List>
+          <SettingItem title={Locale.Settings.User.Username}>
+            <UsernameInput></UsernameInput>
+          </SettingItem>
+          <SettingItem title={Locale.Settings.User.Password}>
+            <PasswordInput
+              value={accessStore.accessCode}
+              type="text"
+              placeholder={Locale.Settings.User.PasswordPlaceholder}
+              onChange={(e) => {
+                accessStore.updateCode(e.currentTarget.value);
+              }}
+            />
+          </SettingItem>
+          <SettingItem title={""}></SettingItem>
+        </List>
+        <List>
           <SettingItem title={Locale.Settings.Avatar}>
             <Popover
               onClose={() => setShowEmojiPicker(false)}
@@ -321,7 +351,7 @@ export function Settings() {
                 className={styles.avatar}
                 onClick={() => setShowEmojiPicker(true)}
               >
-                <Avatar role="user" />
+                <ChatAvatar role="user" />
               </div>
             </Popover>
           </SettingItem>

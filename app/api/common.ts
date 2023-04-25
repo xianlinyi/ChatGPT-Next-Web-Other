@@ -14,6 +14,7 @@ export async function requestOpenai(req: NextRequest) {
   if (!baseUrl.startsWith("http")) {
     baseUrl = `${PROTOCOL}://${baseUrl}`;
   }
+  console.log(baseUrl);
 
   console.log("[Proxy] ", openaiPath);
   console.log("[Base Url]", baseUrl);
@@ -26,7 +27,9 @@ export async function requestOpenai(req: NextRequest) {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${apiKey}`,
-      ...(process.env.OPENAI_ORG_ID && { "OpenAI-Organization": process.env.OPENAI_ORG_ID }),
+      ...(process.env.OPENAI_ORG_ID && {
+        "OpenAI-Organization": process.env.OPENAI_ORG_ID,
+      }),
     },
     method: req.method,
     body: req.body,

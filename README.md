@@ -27,20 +27,23 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 - Privacy first, all data stored locally in the browser
 - Responsive design, dark mode and PWA
 - Fast first screen loading speed (~100kb), support streaming response
-- Awesome prompts powered by [awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh) and [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts)
+- Awesome prompts powered by [awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)
+  and [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts)
 - Automatically compresses chat history to support long conversations while also saving your tokens
 - One-click export all chat history with full Markdown support
 - I18n supported
 
 ## Roadmap
 
-- [x] System Prompt: pin a user defined prompt as system prompt [#138](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/138)
+- [x] System Prompt: pin a user defined prompt as system
+  prompt [#138](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/138)
 - [x] User Prompt: user can edit and save custom prompts to prompt list
 - [ ] Prompt Template: create a new chat with pre-defined in-context prompts
 - [ ] Share as image, share to ShareGPT
 - [ ] Desktop App with tauri
 - [ ] Self-host Model: support llama, alpaca, ChatGLM, BELLE etc.
-- [ ] Plugins: support network search, calculator, any other apis etc. [#165](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/165)
+- [ ] Plugins: support network search, calculator, any other apis
+  etc. [#165](https://github.com/Yidadaa/ChatGPT-Next-Web/issues/165)
 
 ### Not in Plan
 
@@ -53,7 +56,8 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 - 精心设计的 UI，响应式设计，支持深色模式，支持 PWA
 - 极快的首屏加载速度（~100kb），支持流式响应
 - 隐私安全，所有数据保存在用户浏览器本地
-- 海量的内置 prompt 列表，来自[中文](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)和[英文](https://github.com/f/awesome-chatgpt-prompts)
+- 海量的内置 prompt 列表，来自[中文](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)
+  和[英文](https://github.com/f/awesome-chatgpt-prompts)
 - 自动压缩上下文聊天记录，在节省 Token 的同时支持超长对话
 - 一键导出聊天记录，完整的 Markdown 支持
 - 拥有自己的域名？好上加好，绑定后即可在任何地方**无障碍**快速访问
@@ -79,7 +83,8 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 
 1. Get [OpenAI API Key](https://platform.openai.com/account/api-keys);
 2. Click
-   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYidadaa%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web), remember that `CODE` is your page password;
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYidadaa%2FChatGPT-Next-Web&env=OPENAI_API_KEY&env=CODE&project-name=chatgpt-next-web&repository-name=ChatGPT-Next-Web),
+   remember that `CODE` is your page password;
 3. Enjoy :)
 
 ## FAQ
@@ -92,7 +97,9 @@ One-Click to deploy well-designed ChatGPT web UI on Vercel.
 
 > [简体中文 > 如何保持代码更新](./README_CN.md#保持更新)
 
-If you have deployed your own project with just one click following the steps above, you may encounter the issue of "Updates Available" constantly showing up. This is because Vercel will create a new project for you by default instead of forking this project, resulting in the inability to detect updates correctly.
+If you have deployed your own project with just one click following the steps above, you may encounter the issue of "
+Updates Available" constantly showing up. This is because Vercel will create a new project for you by default instead of
+forking this project, resulting in the inability to detect updates correctly.
 
 We recommend that you follow the steps below to re-deploy:
 
@@ -102,7 +109,8 @@ We recommend that you follow the steps below to re-deploy:
 
 ### Enable Automatic Updates
 
-After forking the project, due to the limitations imposed by GitHub, you need to manually enable Workflows and Upstream Sync Action on the Actions page of the forked project. Once enabled, automatic updates will be scheduled every hour:
+After forking the project, due to the limitations imposed by GitHub, you need to manually enable Workflows and Upstream
+Sync Action on the Actions page of the forked project. Once enabled, automatic updates will be scheduled every hour:
 
 ![Automatic Updates](./docs/images/enable-actions.jpg)
 
@@ -110,7 +118,9 @@ After forking the project, due to the limitations imposed by GitHub, you need to
 
 ### Manually Updating Code
 
-If you want to update instantly, you can check out the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) to learn how to synchronize a forked project with upstream code.
+If you want to update instantly, you can check out
+the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)
+to learn how to synchronize a forked project with upstream code.
 
 You can star or watch this project or follow author to get release notifictions in time.
 
@@ -118,7 +128,8 @@ You can star or watch this project or follow author to get release notifictions 
 
 > [简体中文 > 如何增加访问密码](./README_CN.md#配置页面访问密码)
 
-This project provides limited access control. Please add an environment variable named `CODE` on the vercel environment variables page. The value should be passwords separated by comma like this:
+This project provides limited access control. Please add an environment variable named `CODE` on the vercel environment
+variables page. The value should be passwords separated by comma like this:
 
 ```
 code1,code2,code3
